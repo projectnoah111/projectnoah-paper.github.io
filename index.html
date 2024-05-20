@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>46</title>
+<style>
+    body {
+        background-color: #2d2d2d;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-size: 60px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .title {
+        color: #008ED8;
+        font-size: 100px;
+        margin-bottom: 20px; /* 타이틀과 폼 사이의 간격 */
+    }
+    form {
+        text-align: center;
+    }
+    input[type="text"], input[type="button"] {
+        font-size: 60px;
+        background-color: #ffffff;
+        color: #2d2d2d;
+        border: none; /* 인풋박스의 테두리 제거 */
+        box-shadow: none; /* 인풋박스의 그림자 제거 */
+    }
+    input[type="button"] {
+        font-size: 60px;
+        background-color: #4d4d4d;
+        color: #ffffff;
+        margin-left: 10px;
+        border: none; /* 버튼의 테두리 제거 */
+        box-shadow: none; /* 버튼의 그림자 제거 */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <p class="title">46. 사건보고서</p>
+
+    <form id="infoForm">
+        <label for="infoInput">1급 기밀 문서입니다.<br>선원 아이디를 입력하세요.<br>Insert CREW ID.<br><br>하이픈(-)을 제외하고 입력하세요.<br>아이디는 12자리입니다.<br></label><br>
+        <input type="text" id="infoInput" name="infoInput">
+        <input type="button" value="제출" onclick="processForm()">
+    </form>
+</div>
+
+<script>
+function processForm() {
+    var input = document.getElementById("infoInput").value;
+    var url = "";
+
+    if(input === "237833234857") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "482545809964") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "678258918349") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "988188509327") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "012876310963") {
+        url = "image.html";
+    } else {
+        url = "result.html?result=잘못된 선원 아이디입니다.";
+    }
+
+    window.location.href = url; // Redirect to the new page with the result or image
+}
+</script>
+
+</body>
+</html>
