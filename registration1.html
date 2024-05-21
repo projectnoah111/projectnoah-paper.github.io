@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>선원 확인</title>
+<style>
+    @font-face {
+        font-family: 'ONE-Mobile-Title';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        background-color: #2d2d2d;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-size: 60px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .title {
+        color: #008ED8;
+        font-size: 100px;
+        margin-bottom: 20px;
+        font-family: 'ONE-Mobile-Title', sans-serif; /* 폰트 적용 */
+    }
+    .step {
+        color: #ffffff;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    .instruction {
+        color: #ffffff;
+        font-size: 40px;
+        text-align: center;
+        line-height: 2; /* 자간 조절, 필요에 따라 값을 변경하세요 */
+        margin-bottom: 20px; /* 추가된 본문과 입력란 사이의 간격 */
+    }
+    input[type="text"] {
+        font-size: 56px; /* 크기를 약 70%로 줄임 */
+        margin: 10px;
+        padding: 14px; /* 패딩도 70%로 줄임 */
+        border: none;
+    }
+    input[type="button"] {
+        font-size: 80px; /* 버튼 크기를 두 배로 */
+        background-color: #ffffff;
+        color: #2d2d2d;
+        border: none;
+        padding: 20px 40px; /* 패딩을 더 크게 */
+        cursor: pointer;
+        font-weight: bold; /* 글자 굵게 */
+        border-radius: 20px; /* 모서리를 더 둥글게 */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* drop shadow */
+    }
+    input[type="button"]:hover {
+        background-color: #f0f0f0; /* 호버 효과 */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <p class="title">선원 확인</p>
+        <div id="stepInfo" class="step"></div>
+        <div class="instruction">
+            본인 확인을 위해 선원 아이디를 입력하세요.<br>
+            Insert CREW ID.<br><br>
+            하이픈(-)을 제외하고 입력하세요.<br>
+            아이디는 12자리입니다.<br>
+        </div>
+        <input type="text" id="idInput" placeholder="아이디 입력"><br>
+        <input type="button" value="스캔하기" onclick="validateID()">
+    </div>
+    <script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const step = urlParams.get('step');
+        document.getElementById('stepInfo').innerText = `선원 확인 시작 (${step}/3)`;
+    }
+
+    function validateID() {
+        const id = document.getElementById("idInput").value;
+        let message = '';
+        let name = '';
+        switch(id) {
+            case '237833234857':
+                name = '노은혜';
+                message = `${name}, 선원 확인이 완료되었습니다. 탑승자 등록을 진행해 주세요.`;
+                break;
+            case '482545809964':
+                name = '최명석';
+                message = `${name}, 선원 확인이 완료되었습니다. 탑승자 등록을 진행해 주세요.`;
+                break;
+            case '678258918349':
+                name = '윤선우';
+                message = `${name}, 선원 확인이 완료되었습니다. 탑승자 등록을 진행해 주세요.`;
+                break;
+            case '988188509327':
+                name = '허정수';
+                message = `${name}, 선원 확인이 완료되었습니다. 탑승자 등록을 진행해 주세요.`;
+                break;
+            default:
+                alert("잘못된 선원 아이디입니다.");
+                return;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const step = urlParams.get('step');
+        const registered = JSON.parse(urlParams.get('registered'));
+
+        alert(message);
+        window.location.href = `register_passengers.html?step=${step}&registered=${encodeURIComponent(JSON.stringify(registered))}&id=${id}&name=${name}`;
+    }
+    </script>
+</body>
+</html>
