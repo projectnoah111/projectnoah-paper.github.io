@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>46</title>
+<style>
+    @font-face {
+        font-family: 'ONE-Mobile-Title';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        background-color: #2d2d2d;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-size: 60px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .title {
+        color: #008ED8;
+        font-size: 100px;
+        margin-bottom: 20px; /* 타이틀과 폼 사이의 간격 */
+        font-family: 'ONE-Mobile-Title', sans-serif; /* 폰트 적용 */
+        text-align: center; /* 가운데 정렬 */
+    }
+    .instruction {
+        color: #ffffff;
+        font-size: 40px;
+        text-align: center;
+        line-height: 2; /* 자간 조절, 필요에 따라 값을 변경하세요 */
+        margin-bottom: 20px; /* 추가된 본문과 입력란 사이의 간격 */
+    }
+    form {
+        text-align: center;
+    }
+    input[type="text"] {
+        font-size: 80px; /* 크기를 두 배로 */
+        margin: 10px;
+        padding: 20px; /* 패딩을 더 크게 */
+        border: none;
+    }
+    input[type="button"] {
+        font-size: 80px; /* 버튼 크기 */
+        background-color: #ffffff;
+        color: #2d2d2d;
+        border: none;
+        padding: 20px 40px; /* 패딩을 더 크게 */
+        cursor: pointer;
+        font-weight: bold; /* 글자 굵게 */
+        border-radius: 20px; /* 모서리를 더 둥글게 */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* drop shadow */
+        margin-top: 20px; /* 입력칸과 버튼 사이의 간격 */
+    }
+    input[type="button"]:hover {
+        background-color: #f0f0f0; /* 호버 효과 */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <p class="title">46. 사건보고서</p>
+
+    <form id="infoForm">
+        <div class="instruction">
+            1급 기밀 문서입니다.<br>선원 아이디를 입력하세요.<br>Insert CREW ID.<br><br>하이픈(-)을 제외하고 입력하세요.<br>아이디는 12자리입니다.<br>
+        </div>
+        <input type="text" id="infoInput" name="infoInput"><br>
+        <input type="button" value="제출" onclick="processForm()">
+    </form>
+</div>
+
+<script>
+function processForm() {
+    var input = document.getElementById("infoInput").value;
+    var url = "";
+
+    if(input === "237833234857") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "482545809964") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "678258918349") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "988188509327") {
+        url = "result.html?result=열람 권한이 없습니다.";
+    } else if (input === "012876310963") {
+        url = "image.html";
+    } else {
+        url = "result.html?result=잘못된 선원 아이디입니다.";
+    }
+
+    window.location.href = url; // Redirect to the new page with the result or image
+}
+</script>
+
+</body>
+</html>
