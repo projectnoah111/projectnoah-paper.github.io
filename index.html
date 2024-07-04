@@ -10,6 +10,13 @@
         font-style: normal;
     }
 
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+
     body {
         background-color: #0d0d0d;
         color: #00BFFF;
@@ -19,8 +26,8 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        font-size: 60px;
-        font-family: 'ONE-Mobile-Title', sans-serif;
+        font-size: 48px; /* 본문 글자 크기를 80%로 조정 */
+        font-family: 'Pretendard-Regular', sans-serif;
         background-image: url('background.png');
         background-size: cover;
         background-position: center;
@@ -48,6 +55,8 @@
         border: 2px solid #00BFFF;
         box-shadow: 0 0 20px #00BFFF;
         overflow: hidden;
+        width: 100%;
+        font-family: 'ONE-Mobile-Title', sans-serif;
     }
     .title::before, .title::after {
         content: '';
@@ -55,45 +64,29 @@
         border: 2px solid #00BFFF;
         box-shadow: 0 0 20px #00BFFF;
         z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
         animation: animate 4s linear infinite;
     }
-    .title::before {
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        animation-delay: 0s;
-    }
     .title::after {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
         animation-delay: 2s;
     }
     @keyframes animate {
         0% {
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            transform: scale(1);
         }
         50% {
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
+            transform: scale(1.1);
         }
         100% {
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            transform: scale(1);
         }
     }
     .instruction {
         color: #FFFFFF;
-        font-size: 5vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 4vw; /* vw 단위를 사용하여 반응형으로 설정 */
         text-align: center;
         line-height: 1.2;
         margin-bottom: 20px;
@@ -104,7 +97,7 @@
         width: 100%;
     }
     input[type="text"] {
-        font-size: 6vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 5vw; /* vw 단위를 사용하여 반응형으로 설정 */
         margin: 10px;
         padding: 10px;
         border: 2px solid #00BFFF;
@@ -115,7 +108,7 @@
         box-sizing: border-box;
     }
     input[type="button"] {
-        font-size: 6vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 5vw; /* vw 단위를 사용하여 반응형으로 설정 */
         background-color: #00BFFF;
         color: #0d0d0d;
         border: 2px solid #00BFFF;
@@ -130,20 +123,6 @@
     }
     input[type="button"]:hover {
         background-color: #0099CC;
-    }
-    @media (max-width: 768px) {
-        .title {
-            font-size: 10vw;
-        }
-        .instruction {
-            font-size: 7vw;
-        }
-        input[type="text"] {
-            font-size: 8vw;
-        }
-        input[type="button"] {
-            font-size: 8vw;
-        }
     }
 </style>
 </head>
