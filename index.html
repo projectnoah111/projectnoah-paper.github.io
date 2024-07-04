@@ -11,8 +11,8 @@
     }
 
     body {
-        background-color: #2d2d2d;
-        color: #ffffff;
+        background-color: #0d0d0d;
+        color: #00BFFF;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -20,51 +20,110 @@
         height: 100vh;
         margin: 0;
         font-size: 60px;
+        font-family: 'ONE-Mobile-Title', sans-serif;
+        background-image: url('background.png');
+        background-size: cover;
+        background-position: center;
     }
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: auto;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border: 2px solid #00BFFF;
+        box-shadow: 0 0 10px #00BFFF;
     }
     .title {
-        color: #008ED8;
+        color: #00BFFF;
         font-size: 100px;
-        margin-bottom: 20px; /* 타이틀과 폼 사이의 간격 */
-        font-family: 'ONE-Mobile-Title', sans-serif; /* 폰트 적용 */
-        text-align: center; /* 가운데 정렬 */
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 0 10px #00BFFF;
+        position: relative;
+        padding: 20px;
+        border: 5px solid #00BFFF;
+        box-shadow: 0 0 20px #00BFFF;
+        overflow: hidden;
+    }
+    .title::before, .title::after {
+        content: '';
+        position: absolute;
+        border: 2px solid #00BFFF;
+        box-shadow: 0 0 20px #00BFFF;
+        z-index: -1;
+        animation: animate 4s linear infinite;
+    }
+    .title::before {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        animation-delay: 0s;
+    }
+    .title::after {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        animation-delay: 2s;
+    }
+    @keyframes animate {
+        0% {
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+        }
+        50% {
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+        }
+        100% {
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+        }
     }
     .instruction {
-        color: #ffffff;
+        color: #FFFFFF;
         font-size: 40px;
         text-align: center;
-        line-height: 2; /* 자간 조절, 필요에 따라 값을 변경하세요 */
-        margin-bottom: 20px; /* 추가된 본문과 입력란 사이의 간격 */
+        line-height: 2;
+        margin-bottom: 20px;
+        text-shadow: 0 0 5px #000000;
     }
     form {
         text-align: center;
     }
     input[type="text"] {
-        font-size: 80px; /* 크기를 두 배로 */
+        font-size: 80px;
         margin: 10px;
-        padding: 20px; /* 패딩을 더 크게 */
-        border: none;
+        padding: 20px;
+        border: 2px solid #00BFFF;
+        background: rgba(0, 0, 0, 0.6);
+        color: #00BFFF;
+        text-shadow: 0 0 5px #00BFFF;
     }
     input[type="button"] {
-        font-size: 80px; /* 버튼 크기 */
-        background-color: #ffffff;
-        color: #2d2d2d;
-        border: none;
-        padding: 20px 40px; /* 패딩을 더 크게 */
+        font-size: 80px;
+        background-color: #00BFFF;
+        color: #0d0d0d;
+        border: 2px solid #00BFFF;
+        padding: 20px 40px;
         cursor: pointer;
-        font-weight: bold; /* 글자 굵게 */
-        border-radius: 20px; /* 모서리를 더 둥글게 */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* drop shadow */
-        margin-top: 20px; /* 입력칸과 버튼 사이의 간격 */
+        font-weight: bold;
+        border-radius: 20px;
+        box-shadow: 0 0 10px #00BFFF;
+        margin-top: 20px;
     }
     input[type="button"]:hover {
-        background-color: #f0f0f0; /* 호버 효과 */
+        background-color: #0099CC;
     }
 </style>
 </head>
