@@ -26,12 +26,13 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        font-size: 48px; /* 본문 글자 크기를 80%로 조정 */
+        font-size: 48px;
         font-family: 'Pretendard-Regular', sans-serif;
         background-image: url('background.png');
         background-size: cover;
         background-position: center;
     }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -39,65 +40,62 @@
         justify-content: center;
         background: rgba(0, 0, 0, 0.8);
         padding: 20px;
-        border: 2px solid #00BFFF;
         box-shadow: 0 0 10px #00BFFF;
         max-width: 90%;
         box-sizing: border-box;
+        position: relative;
     }
+
     .title {
         color: #00BFFF;
-        font-size: 8vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 8vw;
         margin-bottom: 20px;
         text-align: center;
         text-shadow: 0 0 10px #00BFFF;
-        position: relative;
         padding: 10px;
-        border: 2px solid #00BFFF;
-        box-shadow: 0 0 20px #00BFFF;
-        overflow: hidden;
         width: 100%;
         font-family: 'ONE-Mobile-Title', sans-serif;
+        position: relative;
+        overflow: hidden;
     }
-    .title::before, .title::after {
+
+    .title::before {
         content: '';
         position: absolute;
-        border: 2px solid #00BFFF;
-        box-shadow: 0 0 20px #00BFFF;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
         top: 0;
         left: 0;
-        animation: animate 4s linear infinite;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(0, 191, 255, 0.5), rgba(0, 191, 255, 0));
+        z-index: 1;
+        animation: moveLines 3s infinite linear;
     }
-    .title::after {
-        animation-delay: 2s;
-    }
-    @keyframes animate {
+
+    @keyframes moveLines {
         0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
+            transform: translateX(-100%);
         }
         100% {
-            transform: scale(1);
+            transform: translateX(100%);
         }
     }
+
     .instruction {
         color: #FFFFFF;
-        font-size: 4vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 4vw;
         text-align: center;
         line-height: 1.2;
         margin-bottom: 20px;
         text-shadow: 0 0 5px #000000;
     }
+
     form {
         text-align: center;
         width: 100%;
     }
+
     input[type="text"] {
-        font-size: 5vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 5vw;
         margin: 10px;
         padding: 10px;
         border: 2px solid #00BFFF;
@@ -107,8 +105,9 @@
         width: 80%;
         box-sizing: border-box;
     }
+
     input[type="button"] {
-        font-size: 5vw; /* vw 단위를 사용하여 반응형으로 설정 */
+        font-size: 5vw;
         background-color: #00BFFF;
         color: #0d0d0d;
         border: 2px solid #00BFFF;
@@ -120,9 +119,42 @@
         margin-top: 20px;
         width: 50%;
         box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
     }
-    input[type="button"]:hover {
-        background-color: #0099CC;
+
+    input[type="button"]:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    input[type="button"]:hover:before {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    input[type="button"]:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.5s ease;
+        transform: translate(-50%, -50%) rotate(45deg) scale(0);
+        z-index: -1;
+    }
+
+    input[type="button"]:hover:after {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
     }
 </style>
 </head>
